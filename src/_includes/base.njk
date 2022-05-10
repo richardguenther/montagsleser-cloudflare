@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+
+    <head>
+
+        {% block meta %}
+            {% include "partials/_head-meta.njk" %}
+        {% endblock %}
+
+        {% block title %}
+            <title>{{ title }}
+            </title>
+        {% endblock %}
+
+        {% block css %}
+            {% include "partials/_head-css.njk" %}
+        {% endblock %}
+
+        {% block js %}
+            {% include "partials/_head-js.njk" %}
+        {% endblock %}
+
+    </head>
+
+    <body>
+
+        <header>
+            {% block header %}
+                {% include "partials/_body-header.njk" %}
+            {% endblock %}
+        </header>
+
+        <main tabindex="-1" id="main-content" class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+
+            {% block main %}
+                Beispielinhalt für den Block "main"
+            {% endblock %}
+        </main>
+
+        {% block footer %}
+            {% include "partials/_body-footer.njk" %}
+        {% endblock %}
+        {% if path == "home" %}
+            <!-- Netlify Identity Widget -->
+            <!-- Needed only if you are using Netlify Identity feature -->
+            <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        {% endif %}
+    </body>
+
+</html>

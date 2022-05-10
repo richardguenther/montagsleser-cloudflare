@@ -1,0 +1,18 @@
+{
+  "name": "montagsleser",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "eleventy --serve --quiet --incremental & npx tailwindcss -i ./tailwind.css -o ./_site/css/styles.css --watch",
+    "build": "NODE_ENV=production eleventy && npx tailwindcss -i ./tailwind.css -o ./_site/css/styles.css --minify"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0-canary.9",
+    "@11ty/eleventy-fetch": "^3.0.0",
+    "@11ty/eleventy-img": "^2.0.0",
+    "@11ty/eleventy-navigation": "^0.3.3",
+    "alpinejs": "^3.10.2",
+    "esbuild": "^0.14.38",
+    "html-minifier": "^4.0.0",
+    "tailwindcss": "^3.0.24"
+  }
+}
