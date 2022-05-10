@@ -18,18 +18,19 @@ eleventyNavigation:
           </p>
 
           <picture class="">
-            <img class="w-auto my-1" src={{post._embedded['wp:featuredmedia']['0'].source_url}} alt="Bild"/>
+            {# <img class="w-auto my-1" src={{post._embedded['wp:featuredmedia']['0'].source_url}} alt="Bild"/> #}
+            <img class="w-auto my-1" src=/files/{{post.bildUrl}} alt="Bild"/>
           </picture>
 
           <div class="w-full">
             <audio controls preload="none">
-              <source src={{post.acf.mp3url}} type="audio/mp3" >
+              <source src=/files/{{post.mp3Url}} type="audio/mp3" >
   Your browser does not support the audio!
 </audio>
           </div>
 
-          <p>{{post.acf.klappentext}}</p>
-          <p>von {{post._embedded.author.name}}</p>
+          <p>{{post.klappentext}}</p>
+          <p>von {{post.von['0'].post_title}}</p>
 
         </li>
 
