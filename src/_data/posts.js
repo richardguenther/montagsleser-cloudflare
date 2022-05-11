@@ -1,7 +1,7 @@
 const EleventyFetch = require("@11ty/eleventy-fetch");
 
 async function getWpPosts() {
-  const url = "https://inhalt.montagsleser.de/wp-json/wp/v2/kunstwerk?per_page=400";
+  const url = "https://inhalt.montagsleser.de/wp-json/mon/v1/kunstwerk";
 
   const response = EleventyFetch(url, {
     dureation: "1d",
