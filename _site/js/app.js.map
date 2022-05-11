@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../src/js/app.js"],
-  "sourcesContent": ["console.log(\"Hello from ./src/js/app.js\")\n\n"],
-  "mappings": "AAAA,QAAQ,IAAI,4BAA4B",
-  "names": []
-}
