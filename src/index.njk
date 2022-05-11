@@ -7,19 +7,19 @@ eleventyNavigation:
 {% extends "base.njk" %}
 
 {% block main %}
-  <h1 class="text-red-900 text-6xl my-2 mx-auto">Montagsleser</h1>
+  <h1 class="mx-auto my-2 text-6xl text-red-900">Montagsleser</h1>
 
   <div >
     <ul class="flex flex-row flex-wrap justify-between">
       {% for post in posts %}
-        <li class="my-2 bg-gray-300 max-w-xs">
+        <li class="my-2 max-w-xs bg-gray-300">
           <p>
             <a class="text-2xl" href={{post.link}}>{{post.title.rendered | safe}}</a>
           </p>
 
           <picture class="">
-            {# <img class="w-auto my-1" src={{post._embedded['wp:featuredmedia']['0'].source_url}} alt="Bild"/> #}
-            <img class="w-auto my-1" src=/files/{{post.bildUrl}} alt="Bild"/>
+            {# <img class="my-1 w-auto" src={{post._embedded['wp:featuredmedia']['0'].source_url}} alt="Bild"/> #}
+            <img class="my-1 w-auto" src=/files/{{post.bildUrl}} alt={{post.klappentext}}/>
           </picture>
 
           <div class="w-full">
