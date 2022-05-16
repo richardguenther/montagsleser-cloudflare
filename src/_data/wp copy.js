@@ -1,16 +1,17 @@
+
+
 const EleventyFetch = require("@11ty/eleventy-fetch");
 
 async function getWpPosts() {
+  const url = "https://acf.montagsleser.de//wp-json/wp/v2/posts?per_page=2&_embed";
 
- const url = "https://inhalt.montagsleser.de/wp-json/mon/v1/kunstwerk";
-
-  const response = EleventyFetch(url, {
+  const response = EleventyFetch(url,
+  {
     dureation: "1d",
     type: "json"
   })
   const posts = response;
-  
-  return posts 
+  return posts;
 }
 
 module.exports = getWpPosts;

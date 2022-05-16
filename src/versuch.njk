@@ -1,0 +1,23 @@
+---
+title: versuch
+eleventyNavigation:
+  key: versuch
+  order: 3
+---
+{% extends "base.njk" %}
+
+{% block main %}
+
+  <p>Tach</p>
+  <p>
+    {{ posts[10].bildUpload }}
+  </p>
+
+  {% for post in posts %}
+
+    {% image posts[10].bildUpload, 'tach', "(min-width: 5em) 10vw, 20vw" %}
+
+    <p>{{post.bildUpload}}</p>
+
+  {% endfor %}
+{% endblock %}
