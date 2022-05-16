@@ -8,7 +8,7 @@ async function imageShortcode(src, alt, sizes) {
   let metadata = await Image(src, {
     widths: [300, 600],
     formats: ["avif", "jpeg"],
-    outputDir: "./_site/img/",
+    outputDir: "uploads/imagesOptimized/",
     urlPath: "/img/"
   });
 
@@ -78,8 +78,8 @@ module.exports = function (eleventyConfig) {
       } else eleventyConfig.addPassthroughCopy('src/js');
 
       // copy audio- and image-folder
-      // eleventyConfig.addPassthroughCopy({'uploads/audio' : './files'});
-      // eleventyConfig.addPassthroughCopy({'uploads/images' : './files'});
+      eleventyConfig.addPassthroughCopy({'uploads/audio' : './audio'});
+      eleventyConfig.addPassthroughCopy({'uploads/imagesOptimized' : './img'});
 
       // Copy minified alpine.js from node-folder to _site-Folder
       eleventyConfig.addPassthroughCopy({

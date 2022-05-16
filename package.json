@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "eleventy --serve --quiet --incremental & npx tailwindcss -i ./tailwind.css -o ./_site/css/styles.css --watch",
     "builder": "NODE_ENV=production eleventy && npx tailwindcss -i ./tailwind.css -o ./_site/css/styles.css --minify",
-    "build": "NODE_ENV=production eleventy && npx tailwindcss -i ./tailwind.css -o ./_site/css/styles.css --minify"
+    "build": "NODE_ENV=production eleventy && npx tailwindcss -i ./tailwind.css -o ./_site/css/styles.css --minify && eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0-canary.11",
