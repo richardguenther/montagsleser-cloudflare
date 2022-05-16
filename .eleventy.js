@@ -52,18 +52,18 @@ module.exports = function (eleventyConfig) {
       });
 
       // Only minify HTML when in Production
-      eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
-            if (isProduction && outputPath && outputPath.endsWith('.html')) {
-                  let minified = htmlmin.minify(content, {
-                        useShortDoctype: true,
-                        removeComments: true,
-                        collapseWhitespace: true,
-                  });
-                  return minified;
-            }
+      // eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
+      //       if (isProduction && outputPath && outputPath.endsWith('.html')) {
+      //             let minified = htmlmin.minify(content, {
+      //                   useShortDoctype: true,
+      //                   removeComments: true,
+      //                   collapseWhitespace: true,
+      //             });
+      //             return minified;
+      //       }
 
-            return content;
-      });
+      //       return content;
+      // });
 
       // Only minify JS when in Production
       if (isProduction) {
@@ -78,8 +78,8 @@ module.exports = function (eleventyConfig) {
       } else eleventyConfig.addPassthroughCopy('src/js');
 
       // copy audio- and image-folder
-      eleventyConfig.addPassthroughCopy({'uploads/audio' : './files'});
-      eleventyConfig.addPassthroughCopy({'uploads/images' : './files'});
+      // eleventyConfig.addPassthroughCopy({'uploads/audio' : './files'});
+      // eleventyConfig.addPassthroughCopy({'uploads/images' : './files'});
 
       // Copy minified alpine.js from node-folder to _site-Folder
       eleventyConfig.addPassthroughCopy({
