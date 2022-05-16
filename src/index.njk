@@ -17,14 +17,11 @@ eleventyNavigation:
             <a class="text-2xl" href=#>{{post.title | safe}}</a>
           </p>
 
-          <picture class="">
-            {# <img class="my-1 w-auto" src={{post._embedded['wp:featuredmedia']['0'].source_url}} alt="Bild"/> #}
-            <img class="my-1 w-auto" src=/files/{{post.bild}} alt={{post.klappentext}}/>
-          </picture>
+          {% image post.bildUpload, post.title, "(min-width: 5em) 10vw, 20vw" %}
 
           <div class="w-full">
             <audio controls preload="none">
-              <source src=/files/{{post.mp3}} type="audio/mp3" >
+              <source src={{post.mp3Upload}} type="audio/mp3" >
   Your browser does not support the audio!
 </audio>
           </div>

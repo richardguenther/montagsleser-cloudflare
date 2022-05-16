@@ -13,11 +13,4 @@ eleventyNavigation:
     {{ posts[10].bildUpload }}
   </p>
 
-  {% for post in posts %}
-
-    {% image posts[10].bildUpload, 'tach', "(min-width: 5em) 10vw, 20vw" %}
-
-    <p>{{post.bildUpload}}</p>
-
-  {% endfor %}
 {% endblock %}
