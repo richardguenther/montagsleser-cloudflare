@@ -10,15 +10,11 @@
   display: flex;
 }
 
-
-
 .aufzaehlung li::after {
 content: ',';
 margin-right: 3px;
-margin-left: 3px;
+margin-left: 0px;
 }
-
-
 
 .aufzaehlung li:nth-last-child(2)::after {
   content:"&";
