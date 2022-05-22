@@ -4,15 +4,16 @@ const now = String(Date.now());
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const Image = require("@11ty/eleventy-img");
 
-async function imageShortcode(src, alt, sizes) {
+async function imageShortcode(src, cls, alt, sizes) {
   let metadata = await Image(src, {
     widths: [300, 600],
     formats: ["avif", "jpeg"],
-    outputDir: "uploads/imagesOptimized/",
+    outputDir: "_fetched/imagesOptimized",
     urlPath: "/img/"
   });
 
   let imageAttributes = {
+       class: cls,
     alt,
     sizes,
     loading: "lazy",
@@ -79,7 +80,7 @@ module.exports = function (eleventyConfig) {
 
       // copy audio- and image-folder
       eleventyConfig.addPassthroughCopy({'uploads/audio' : './audio'});
-      eleventyConfig.addPassthroughCopy({'uploads/imagesOptimized' : './img'});
+      eleventyConfig.addPassthroughCopy({'_fetched/imagesOptimized' : './img'});
 
       // Copy minified alpine.js from node-folder to _site-Folder
       eleventyConfig.addPassthroughCopy({

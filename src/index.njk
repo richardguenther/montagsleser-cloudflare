@@ -7,28 +7,78 @@ eleventyNavigation:
 {% extends "base.njk" %}
 
 {% block main %}
-  <h1 class="mx-auto my-2 text-6xl text-red-900">Montagsleser</h1>
+  <h1 class="mx-auto mb-4 text-6xl text-red-900">Montagsleser</h1>
 
   <div >
-    <ul class="flex flex-row flex-wrap justify-between">
+    <ul class="grid gap-4 lg:grid-cols-3 md:grid-cols-2">
       {% for post in posts %}
-        <li class="my-2 max-w-xs bg-gray-300">
-          <p>
-            <a class="text-2xl" href=#>{{post.title | safe}}</a>
-          </p>
+        <li class="flex flex-col h-full bg-gray-300 rounded-md">
+          <h3>
+            <a class="mx-1 text-2xl" href=#>{{post.title | safe}}</a>
+          </h3>
+          <div id="bild-und-tags" class="relative">
 
-          {% image post.bildUpload, post.title, "(min-width: 20em) 50vw, 100vw" %}
+            {% image post.bildUpload,"w-full", post.title, "(min-width: 20em) 50vw, 100vw" %}
 
-          <div class="w-full">
+            {% if post.kategorie %}
+              <div class="absolute top-0 p-0.5 text-xs font-bold text-gray-300 bg-blue-900 rounded-br-sm">
+                {{post.kategorie}}
+              </div>
+            {% endif %}
+
+            {% if post.kompilation %}
+              <ul class="aufzaehlung_trenn absolute right-0 bottom-0 p-0.5 text-xs font-bold text-gray-300 bg-green-900 rounded-tl-sm">
+
+                {% for item in post.kompilation %}
+                  <li class="font-bold text-sm">
+                    {{item.post_title}}
+                  {% endfor %}
+
+              </ul>
+            {% endif %}
+          </div>
+          <div class="flex justify-center mx-1 my-1">
             <audio controls preload="none">
               <source src='/audio/{{ post.mp3}}' type="audio/mp3" >
   Your browser does not support the audio!
 </audio>
           </div>
 
-          <p>{{post.klappentext}}</p>
-          <p>von {{post.von}}</p>
+          <div id="textBlock" class=" h-full flex flex-col justify-between">
+            <p>{{post.klappentext | safe }}</p>
 
+            <div id="autorenBlock" class="flex border-t-2 border-t-stone-500 mt-3">
+              <div id="vonBlock" class="mx-1 flex space-x-1">
+                {% if post.von %}
+                  <span class="text-sm">von:</span>
+                  <ul class="flex">
+                    {% for item in post.von %}
+                      <li class="font-bold text-sm">
+                        {{item.post_title}}
+                      </li>
+                    {% endfor %}
+                  </ul>
+
+                {% endif %}
+              </div>
+
+              <div id="mitBlock" class="mx-1 flex space-x-1">
+                {% if (post.mit[1].post_title) 
+                  or(post.mit[0].post_title !== post.von[0].post_title) %}
+                  <span class="text-sm ml-1"> mit:</span>
+                  <ul class="aufzaehlung">
+                    {% for item in post.mit %}
+                      <li class="text-sm font-bold">
+                        {{item.post_title}}
+                      </li>
+                    {% endfor %}
+                  </ul>
+
+                {% endif %}
+
+              </div>
+            </div>
+          </div>
         </li>
 
       {% endfor %}
