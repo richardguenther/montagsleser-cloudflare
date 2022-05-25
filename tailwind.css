@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+.smol-flexbox-grid {
+  --min: 10ch;
+  --gap: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.smol-flexbox-grid > * {
+  flex: 1 1 var(--min);
+}
+
+/* --- Aufzählung --- */
 .aufzaehlung {
   display: flex;
 }
@@ -22,12 +36,9 @@ margin-left: 0px;
   margin-left: 3px;
   }
 
-  .aufzaehlung li:last-child:after {
+ .aufzaehlung li:last-child:after {
     content: "";
   }
-
-
-
   .aufzaehlung_trenn {
     display: flex;
     list-style: none;
